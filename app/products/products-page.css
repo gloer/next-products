@@ -1,0 +1,11 @@
+.products {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(auto-fit, minmax(18.75rem, 1fr));
+
+    article {
+        padding: 1rem;
+        border: 1px solid lightgray;
+        border-radius: 0.5rem;
+    }
+}

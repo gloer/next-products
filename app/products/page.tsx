@@ -1,13 +1,8 @@
+import "./products-page.css";
+import { type Products } from "@/types/products";
+import Image from "next/image";
+import Link from "next/link";
 import { notFound } from "next/navigation";
-
-type Product = {
-    id: number;
-    title: string;
-    description: string;
-    thumbnail: string;
-}
-
-type Products = Product[];
 
 export default async function ProductsPage() {
 
@@ -24,11 +19,19 @@ export default async function ProductsPage() {
     return (
         <>
             <h1>Products</h1>
-            <section>
+            <section className="products">
                 {
                     products.map(product => (
                         <article key={product.id}>
+                            <Image 
+                                alt="" 
+                                width={300}
+                                height={300}
+                                src={product.thumbnail}
+                            />
                             <h1>{product.title}</h1>
+                            <p>{product.description}</p>
+                            <Link href={`/products/${product.id}`}>Buy {product.title}</Link>
                         </article>
                     ))
                 }
